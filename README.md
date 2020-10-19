@@ -46,8 +46,8 @@ has_many :purchases
 
 | Column            | Type        | Options                        |
 | ----------------- | ----------- | ------------------------------ |
-| item_name         | string      | null: false                    |
-| item_description  | text        | null: false                    |
+| name              | string      | null: false                    |
+| description       | text        | null: false                    |
 | category_id       | integer     | null: false                    |
 | status_id         | integer     | null: false                    |
 | burden_id         | integer     | null: false                    |
@@ -58,30 +58,30 @@ has_many :purchases
 
 
 ### Association
-has_many :items
+has_many :purchase
 belongs_to :user
 
 
 ##shipsテーブル
-| Column              | Type     | Options           |
-| ------------------- | -------- | ----------------- |
-| postalcode          | string   |  null: false      |
-| prefectures_id      | integer  |  null: false      |
-| shipaddess          | string   |  null: false      |
-| shiptoaddess        | string   |  null: false      |
-| shipbuilding        | string   |                   |
-| mobile              | string   |  null: false      |
+| Column              | Type     | Options                             |
+| ------------------- | -------- | ----------------------------------- |
+| postalcode          | string   |  null: false,  foreign_key: true    |
+| prefectures_id      | integer  |  null: false,  foreign_key: true    |
+| shipaddess          | string   |  null: false,  foreign_key: true    |
+| shiptoaddess        | string   |  null: false,  foreign_key: true    |
+| shipbuilding        | string   |  foreign_key: true                  |
+| mobile              | string   |  null: false,  foreign_key: true    |
 
 ### Association
-has_one :purchase
-
-##purchasesテーブル
-| Column              | Type              | Options           |
-| ------------------- | ----------------- | ----------------- |
-| user_id             | string            |  null: false      |
-| furimas_id          | string            |  null: false      |
-
-### Association
+belong_to :purchase
 belong_to :user
 belong_to :item
-belong_to :ship
+
+##purchasesテーブル
+| Column              | Type              | Options                            |
+| ------------------- | ----------------- | ---------------------------------- |
+| user_id             | references        |  null: false, foreign_key: true    |
+| item_id             | references        |  null: false, foreign_key: true    |
+
+### Association
+has_one :ship
