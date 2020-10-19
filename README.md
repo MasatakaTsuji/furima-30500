@@ -58,19 +58,20 @@ has_many :purchases
 
 
 ### Association
-has_many :purchase
+has_one :purchase
 belongs_to :user
 
 
 ##shipsテーブル
-| Column              | Type     | Options                             |
-| ------------------- | -------- | ----------------------------------- |
-| postalcode          | string   |  null: false,  foreign_key: true    |
-| prefectures_id      | integer  |  null: false,  foreign_key: true    |
-| shipaddess          | string   |  null: false,  foreign_key: true    |
-| shiptoaddess        | string   |  null: false,  foreign_key: true    |
-| shipbuilding        | string   |  foreign_key: true                  |
-| mobile              | string   |  null: false,  foreign_key: true    |
+| Column              | Type       | Options                            |
+| ------------------- | ---------- | ---------------------------------- |
+| postalcode          | string     |  null: false,                      |
+| prefectures_id      | integer    |  null: false,                      |
+| shipaddess          | string     |  null: false,                      |
+| shiptoaddess        | string     |  null: false,                      |
+| shipbuilding        | string     |                                    |
+| mobile              | string     |  null: false,                      |
+| purchases           | references |  null: false, foreign_key: true    |
 
 ### Association
 belong_to :purchase
@@ -78,9 +79,8 @@ belong_to :purchase
 ##purchasesテーブル
 | Column              | Type              | Options                            |
 | ------------------- | ----------------- | ---------------------------------- |
-| user_id             | references        |  null: false, foreign_key: true    |
-| item_id             | references        |  null: false, foreign_key: true    |
-
+| user_id             | integer           |  null: false, foreign_key: true    |
+| item_id             | integer           |  null: false, foreign_key: true    |
 ### Association
 has_one :ship
 belong_to :user
