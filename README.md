@@ -71,7 +71,7 @@ belongs_to :user
 | shiptoaddess        | string     |  null: false,                      |
 | shipbuilding        | string     |                                    |
 | mobile              | string     |  null: false,                      |
-| purchases           | references |  null: false, foreign_key: true    |
+| purchases           | reference  |  null: false, foreign_key: true    |
 
 ### Association
 belong_to :purchase
