@@ -74,8 +74,6 @@ belongs_to :user
 
 ### Association
 belong_to :purchase
-belong_to :user
-belong_to :item
 
 ##purchasesテーブル
 | Column              | Type              | Options                            |
@@ -85,3 +83,5 @@ belong_to :item
 
 ### Association
 has_one :ship
+belong_to :user
+belong_to :item
