@@ -38,38 +38,42 @@ Things you may want to cover:
 | birthdat   | date     | null: false |
 
 ### Association
-has_many :furimas
+has_many :items
 has_many :purchases
 
 
-##furimasテーブル
+##itemsテーブル
 
 | Column            | Type        | Options                        |
 | ----------------- | ----------- | ------------------------------ |
 | item_name         | string      | null: false                    |
 | item_description  | text        | null: false                    |
-| integer           | shipping_id | null: false                    |
+| category_id       | integer     | null: false                    |
+| status_id         | integer     | null: false                    |
+| burden_id         | integer     | null: false                    |
+| prefectures_id    | integer     | null: false                    |
+| ship_date_id      | integer     | null: false                    |
 | selling_price     | integer     | null: false                    |
 | user              | references  | null: false, foreign_key: true |
 
 
 ### Association
-has_many :card
+has_many :items
 belongs_to :user
 
 
 ##shipsテーブル
-| Column              | Type              | Options           |
-| ------------------- | ----------------- | ----------------- |
-| postalcode          | string            |  null: false      |
-| integer             | prefectures_id    |  null: false      |
-| shipaddess          | string            |  null: false      |
-| shiptoaddess        | string            |  null: false      |
-| shipbuilding        | string            |                   |
-| mobile              | string            |  null: false      |
+| Column              | Type     | Options           |
+| ------------------- | -------- | ----------------- |
+| postalcode          | string   |  null: false      |
+| prefectures_id      | integer  |  null: false      |
+| shipaddess          | string   |  null: false      |
+| shiptoaddess        | string   |  null: false      |
+| shipbuilding        | string   |                   |
+| mobile              | string   |  null: false      |
 
 ### Association
-hase_one :purchases
+has_one :purchase
 
 ##purchasesテーブル
 | Column              | Type              | Options           |
@@ -78,6 +82,6 @@ hase_one :purchases
 | furimas_id          | string            |  null: false      |
 
 ### Association
-belong_to :users
-belomg_to :furimas
-belong_to :ships
+belong_to :user
+belong_to :item
+belong_to :ship
