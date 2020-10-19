@@ -35,58 +35,49 @@ Things you may want to cover:
 | fname      | string   | null: false |
 | lname_kana | string   | null: false |
 | fname_kana | string   | null: false |
-| birthdat   | datetime | null: false |
+| birthdat   | date     | null: false |
 
 ### Association
 has_many :furimas
-has_many :card
+has_many :purchases
 
 
 ##furimasテーブル
 
-| Column                    | Type       | Options                        |
-| ------------------------- | ---------- | ------------------------------ |
-| product_name              | string     | null: false                    |
-| product_description       | string     | null: false                    |
-| product_details_category  | string     | null: false                    |
-| product_details_status    | text       | null: false                    |
-| shipping_burden           | string     | null: false                    |
-| shipment_scuree           | string     | null: false                    |
-| shipping_days             | datetime   | null: false                    |
-| selling_price             | integer    | null: false                    |
-| fee                       | integer    | null: false                    |
-| profit                    | integer    | null: false                    |
-| user                      | references | null: false, foreign_key: true |
+| Column            | Type        | Options                        |
+| ----------------- | ----------- | ------------------------------ |
+| item_name         | string      | null: false                    |
+| item_description  | text        | null: false                    |
+| integer           | shipping_id | null: false                    |
+| selling_price     | integer     | null: false                    |
+| user              | references  | null: false, foreign_key: true |
 
 
 ### Association
 has_many :card
 belongs_to :user
 
-##cardsテーブル
-| Column              | Type       | Options                        |
-| ------------------- | ---------- | ------------------------------ |
-| card_information    | integer    |  null: false                   |
-| exmonth             | integer    |  null: false                   |
-| exyear              | integer    |  null: false                   |
-| security_code       | integer    |  null: false                   |
-| user                | references | null: false, foreign_key: true |
-| prototype           | references | null: false, foreign_key: true |
+
+##shipsテーブル
+| Column              | Type              | Options           |
+| ------------------- | ----------------- | ----------------- |
+| postalcode          | string            |  null: false      |
+| integer             | prefectures_id    |  null: false      |
+| shipaddess          | string            |  null: false      |
+| shiptoaddess        | string            |  null: false      |
+| shipbuilding        | string            |                   |
+| mobile              | string            |  null: false      |
+
+### Association
+hase_one :purchases
+
+##purchasesテーブル
+| Column              | Type              | Options           |
+| ------------------- | ----------------- | ----------------- |
+| user_id             | string            |  null: false      |
+| furimas_id          | string            |  null: false      |
 
 ### Association
 belong_to :users
 belomg_to :furimas
-belong_to :ship
-
-##shipsテーブル
-| Column              | Type       | Options           |
-| ------------------- | ---------- | ----------------- |
-| postalcode          | integer    |  null: false      |
-| shipcity            | string     |  null: false      |
-| shipaddess          | text       |  null: false      |
-| shiptoaddess        | text       |  null: false      |
-| shipbuilding        | text       |  null: false      |
-| mobile              | integer    |  null: false      |
-
-### Association
-belong_one :card
+belong_to :ships
