@@ -35,7 +35,7 @@ Things you may want to cover:
 | fname      | string   | null: false |
 | lname_kana | string   | null: false |
 | fname_kana | string   | null: false |
-| birthdat   | date     | null: false |
+| birthday   | date     | null: false |
 
 ### Association
 has_many :items
