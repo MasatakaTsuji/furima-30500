@@ -15,6 +15,6 @@ class User < ApplicationRecord
                        format: { with: /\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])\w{6,12}\z/ }
   end
 
-  # has_many :items
+  has_many :items
   # has_many :purchases
 end
