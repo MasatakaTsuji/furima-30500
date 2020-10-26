@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :item do
-    name             { '猿' }
-    description      { 'お猿' }
+    name             {'猿'}
+    description      {'お猿'}
     category_id      { 2 }
     status_id        { 2 }
     burden_id        { 2 }
