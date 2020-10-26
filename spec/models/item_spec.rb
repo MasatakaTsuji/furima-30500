@@ -42,7 +42,7 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Status can't be blank", "Status is not a number")
       end
       it'status_idが1では投稿できない'do
-      @item.status_id = "1"
+      @item.status_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Status must be other than 1")
       end
@@ -53,7 +53,7 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Burden can't be blank", "Burden is not a number")
       end
       it'burden_idが1では投稿できない'do
-      @item.burden_id  = "1"
+      @item.burden_id  = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Burden must be other than 1")
       end
@@ -64,7 +64,7 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Prefecture can't be blank", "Prefecture is not a number")
       end
       it'prefecture_idが1では投稿できない'do
-      @item.prefecture_id = "1"
+      @item.prefecture_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
       end
@@ -75,7 +75,7 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Ship date can't be blank", "Ship date is not a number")
       end
       it'ship_date_idが1では投稿できない'do
-      @item.ship_date_id = "1"
+      @item.ship_date_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Ship date must be other than 1")
       end
