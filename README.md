@@ -48,12 +48,12 @@ has_many :purchases
 | ----------------- | ----------- | ------------------------------ |
 | name              | string      | null: false                    |
 | description       | text        | null: false                    |
-| category_id       | integer     | null: false                    |
-| status_id         | integer     | null: false                    |
-| burden_id         | integer     | null: false                    |
-| prefectures_id    | integer     | null: false                    |
-| ship_date_id      | integer     | null: false                    |
-| selling_price     | integer     | null: false                    |
+| category_id       | integer     | null: false                    |カテゴリー
+| status_id         | integer     | null: false                    |状態
+| burden_id         | integer     | null: false                    |発送負担
+| prefecture_id     | integer     | null: false                    |発送元
+| ship_date_id      | integer     | null: false                    |発送日数
+| selling_price     | integer     | null: false                    |販売価格
 | user              | references  | null: false, foreign_key: true |
 
 
@@ -71,7 +71,7 @@ belongs_to :user
 | shiptoaddess        | string     |  null: false,                      |
 | shipbuilding        | string     |                                    |
 | mobile              | string     |  null: false,                      |
-| purchase           | references  |  null: false, foreign_key: true    |
+| purchase            | references |  null: false, foreign_key: true    |
 
 ### Association
 belong_to :purchase
