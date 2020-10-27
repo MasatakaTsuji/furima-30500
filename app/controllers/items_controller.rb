@@ -20,10 +20,10 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[id])
-    unless current_user == @item.user
-      redirect_to root_path
-    end
+    #@item = Item.find(params[:id])
+    #unless current_user == @item.user
+      #redirect_to root_path
+    #end
   end
 
   def update
@@ -33,10 +33,12 @@ class ItemsController < ApplicationController
     #else
     #@item = Item.find(params[:id])
       #render :edit
+    #end
   end
 
   def show
     @item = Item.find(params[:id])
+    
   end
 
   def destroy
