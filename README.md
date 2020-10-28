@@ -62,16 +62,16 @@ has_one :order
 belongs_to :user
 
 
-##shipsテーブル
-| Column              | Type       | Options                            |
-| ------------------- | ---------- | ---------------------------------- |
-| postalcode          | string     |  null: false,                      |
-| prefectures_id      | integer    |  null: false,                      |
-| shipaddess          | string     |  null: false,                      |
-| shiptoaddess        | string     |  null: false,                      |
-| shipbuilding        | string     |                                    |
-| mobile              | string     |  null: false,                      |
-| purchase           | references  |  null: false, foreign_key: true    |
+##shipテーブル
+| Column              | Type        | Options                            |
+| ------------------- | ----------- | ---------------------------------- |
+| postalcode          | string      |  null: false,                      |
+| prefectures_id      | integer     |  null: false,                      |
+| shipaddess          | string      |  null: false,                      |
+| shiptoaddess        | string      |  null: false,                      |
+| shipbuilding        | string      |                                    |
+| mobile              | string      |  null: false,                      |
+| order               | references  |  null: false, foreign_key: true    |
 
 ### Association
 belong_to :order
@@ -79,8 +79,8 @@ belong_to :order
 ##orderテーブル
 | Column              | Type              | Options                            |
 | ------------------- | ----------------- | ---------------------------------- |
-| user_id             | integer           |  null: false, foreign_key: true    |
-| item_id             | integer           |  null: false, foreign_key: true    |
+| user_id             | references        |  null: false, foreign_key: true    |
+| item_id             | references        |  null: false, foreign_key: true    |
 ### Association
 has_one :ship
 belong_to :user
