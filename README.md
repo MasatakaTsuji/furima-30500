@@ -62,7 +62,7 @@ has_one :order
 belongs_to :user
 
 
-##shipテーブル
+##shipsテーブル
 | Column              | Type        | Options                            |
 | ------------------- | ----------- | ---------------------------------- |
 | postalcode          | string      |  null: false,                      |
@@ -76,7 +76,7 @@ belongs_to :user
 ### Association
 belong_to :order
 
-##orderテーブル
+##ordersテーブル
 | Column              | Type              | Options                            |
 | ------------------- | ----------------- | ---------------------------------- |
 | user_id             | references        |  null: false, foreign_key: true    |

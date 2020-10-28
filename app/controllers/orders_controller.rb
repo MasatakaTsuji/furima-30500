@@ -1,8 +1,7 @@
 class OrdersController < ApplicationController
-  
+  before_action :authenticate_user!, except: [:index, :create]
   def index
-    
-    @order =  Order.new
+    @order = Order.new
     @item = Item.find(params[:item_id])
   end
 
@@ -12,6 +11,6 @@ class OrdersController < ApplicationController
       @order.save
       render redirect_to root_path
     end
-     render :index
+    render :index
   end
 end
