@@ -39,7 +39,7 @@ Things you may want to cover:
 
 ### Association
 has_many :items
-has_many :purchases
+has_many :order
 
 
 ##itemsテーブル
@@ -48,17 +48,17 @@ has_many :purchases
 | ----------------- | ----------- | ------------------------------ |
 | name              | string      | null: false                    |
 | description       | text        | null: false                    |
-| category_id       | integer     | null: false                    |カテゴリー
-| status_id         | integer     | null: false                    |状態
-| burden_id         | integer     | null: false                    |発送負担
-| prefecture_id     | integer     | null: false                    |発送元
-| ship_date_id      | integer     | null: false                    |発送日数
-| selling_price     | integer     | null: false                    |販売価格
+| category_id       | integer     | null: false                    |
+| status_id         | integer     | null: false                    |
+| burden_id         | integer     | null: false                    |
+| prefectures_id    | integer     | null: false                    |
+| ship_date_id      | integer     | null: false                    |
+| selling_price     | integer     | null: false                    |
 | user              | references  | null: false, foreign_key: true |
 
 
 ### Association
-has_one :purchase
+has_one :order
 belongs_to :user
 
 
@@ -71,12 +71,12 @@ belongs_to :user
 | shiptoaddess        | string     |  null: false,                      |
 | shipbuilding        | string     |                                    |
 | mobile              | string     |  null: false,                      |
-| purchase            | references |  null: false, foreign_key: true    |
+| purchase           | references  |  null: false, foreign_key: true    |
 
 ### Association
-belong_to :purchase
+belong_to :order
 
-##purchasesテーブル
+##orderテーブル
 | Column              | Type              | Options                            |
 | ------------------- | ----------------- | ---------------------------------- |
 | user_id             | integer           |  null: false, foreign_key: true    |
