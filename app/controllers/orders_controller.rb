@@ -1,7 +1,9 @@
 class OrdersController < ApplicationController
   
-  def new
-    @order = Order.new
+  def index
+    
+    @order =  Order.new
+    @item = Item.find(params[:item_id])
   end
 
   def create
@@ -10,6 +12,6 @@ class OrdersController < ApplicationController
       @order.save
       render redirect_to root_path
     end
-     render :new
+     render :index
   end
 end
