@@ -15,12 +15,16 @@ class ItemsController < ApplicationController
     if @item.valid?
       @item.save
       redirect_to root_path
-    end
+    else
       render action: :new
+    end
   end
 
   def edit
     redirect_to root_path unless current_user == @item.user
+    if @item.order.present?
+      redirect_to root_path
+    end
   end
 
   def update
@@ -37,7 +41,7 @@ class ItemsController < ApplicationController
   def destroy
     if current_user == @item.user
       @item.destroy
-      redirect_to root_path 
+      redirect_to root_path
     else
       render :show
     end
