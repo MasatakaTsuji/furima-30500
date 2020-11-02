@@ -70,6 +70,16 @@ RSpec.describe Order, type: :model do
         @ordership.valid?
         expect(@ordership.errors.full_messages).to include('Mobile is invalid')
       end
+      it('mobileが数字でない時購入できない') do
+        @ordership.mobile = 'abcdefghigk'
+        @ordership.valid?
+        expect(@ordership.errors.full_messages).to include('Mobile is invalid')
+      end
+      it('mobileは-を含んでる時購入できない') do
+        @ordership.mobile = '090-1234-5678'
+        @ordership.valid?
+        expect(@ordership.errors.full_messages).to include('Mobile is invalid')
+      end
     end
   end
 end
