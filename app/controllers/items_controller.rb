@@ -15,12 +15,17 @@ class ItemsController < ApplicationController
     if @item.valid?
       @item.save
       redirect_to root_path
+    else
+      render action: :new
     end
-    render action: :new
+
   end
 
   def edit
     redirect_to root_path unless current_user == @item.user
+    if @item.order.present?
+      redirect_to root_path
+    end
   end
 
   def update
