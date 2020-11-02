@@ -66,7 +66,7 @@ belongs_to :user
 | Column              | Type        | Options                            |
 | ------------------- | ----------- | ---------------------------------- |
 | postalcode          | string      |  null: false,                      |
-| prefectures_id      | integer     |  null: false,                      |
+| prefecture_id      | integer     |  null: false,                      |
 | shipaddess          | string      |  null: false,                      |
 | shiptoaddess        | string      |  null: false,                      |
 | shipbuilding        | string      |                                    |
