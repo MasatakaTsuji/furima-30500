@@ -9,10 +9,13 @@ RSpec.describe Order, type: :model do
     context '購入がうまくいくとき' do
       it('token,postalcode,prefecture_id,shipaddess,shiptoaddess,mobileがあれば購入することができる') do
         @ordership.valid?
+        expect(@ordership).to be_valid
       end
+
       it('shipbuildingがなくても購入できる') do
         @ordership.shipbuilding = ''
         @ordership.valid?
+        expect(@ordership).to be_valid
       end
     end
 
