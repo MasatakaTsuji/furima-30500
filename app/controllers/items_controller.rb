@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
       @item.save
       redirect_to root_path
     end
-      render action: :new
+    render action: :new
   end
 
   def edit
@@ -37,7 +37,7 @@ class ItemsController < ApplicationController
   def destroy
     if current_user == @item.user
       @item.destroy
-      redirect_to root_path 
+      redirect_to root_path
     else
       render :show
     end
