@@ -12,7 +12,7 @@ class User < ApplicationRecord
     validates :fname_kana, format: { with: /\A[ァ-ヶー－]+\z/ }
     validates :birthday
     validates :password, length: { minimum: 6 },
-                         format: { with: /\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])\w{6,12}\z/ }
+                         format: { with: /\A[a-z0-9]+\z/}
   end
 
   has_many :items
